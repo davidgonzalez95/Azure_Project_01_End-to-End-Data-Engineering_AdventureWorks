@@ -8,7 +8,7 @@ The goal is to create an Azure-based solution that seamlessly moves data from on
 
 By the end of the project, the data will be ready to be connected to a **Power BI dashboard for visualization and reporting**, enabling stakeholders to derive insights.
 
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Pictures/Architecture.png)
+   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
 ## Implementation:
 
@@ -22,7 +22,7 @@ We create a Data Lake with four folders: three for our data (bronze, silver, and
 
 ### Azure Data Factory
 #### Data Factory Architecture:
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Pictures/Data%20factory%20architecture.png)
+   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20factory%20architecture.png)
    
 #### Steps:
 
@@ -32,7 +32,7 @@ We create a Data Lake with four folders: three for our data (bronze, silver, and
      - **`p_rel_url`** – Relative URL of the data source.  
      - **`p_sink_folder`** – Target folder in the ADLS Gen2 bronze layer.  
      - **`p_sink_file`** – Target file name and format.  
-   - [ADF Pipeline JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Codes/Dynamic_Pipeline.json)
+   - [ADF Pipeline JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
    - We upload it to our Data Lake in the parameters folder.
 2. **Create Linked service**
    - We create 2 linked service, one for the source (http) and other one for the sink (storeagedatalake).
@@ -43,7 +43,7 @@ We create a Data Lake with four folders: three for our data (bronze, silver, and
 5. **Verify the stability of the connections and execute the pipeline**
    - **Result in raw data store (bronze)**:
      
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Pictures/Data%20Ingestion%20(Bronze%20folder).png)
+   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Ingestion%20(Bronze%20folder).png)
 
 
 ### Part 2: Data Transformation (Azure Databricks)
@@ -66,7 +66,7 @@ The **purpose of the silver layer** in a data lake, using **Azure Databricks**, 
 
 The following steps are performed within Databricks to process the data effectively:
 You can view the full Databricks notebook here:  
-[Databricks Notebook (Silver_layer)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Codes/Databricks%20Transformations%20(Silver_layer).ipynb)
+[Databricks Notebook (Silver_layer)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Databricks%20Transformations%20(Silver_layer).ipynb)
 
 1. **Data Access Using App**  
    - Connect to the data source using the appropriate application and authentication methods.  
@@ -90,7 +90,7 @@ You can view the full Databricks notebook here:
    - 
 6. **Result in tranformation store (silver)**:
      
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png)
+   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png)
 
 ### Part 3: **Serving (Azure Synapse: Data Views and External Tables)**
 
@@ -111,7 +111,7 @@ After transforming the data in the **Silver layer**, the processed data is struc
 3. **Creating Views for Data Access**
 Views were created on top of the data stored in the silver layer to simplify querying and present the data in a consumable format. These views are based on OPENROWSET, which allows querying data directly from the Data Lake.
 You can view the full Synapse sql script here:  
-[Azure Synapse SQL script)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
+[Azure Synapse SQL script)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
 
 5. **Setting Up External Data Sources**
 To access data from the Data Lake and load it into the Synapse environment, external data sources were configured:
@@ -158,7 +158,7 @@ External tables were created to allow Synapse to access Parquet files stored in 
    
 7. **Result in Served data store (gold)**:
 
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-AdventureWorks-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png
+   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png
 
 ### Part 4: Data Reporting (Power BI)
 
