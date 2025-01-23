@@ -111,7 +111,7 @@ After transforming the data in the **Silver layer**, the processed data is struc
 3. **Creating Views for Data Access**
 Views were created on top of the data stored in the silver layer to simplify querying and present the data in a consumable format. These views are based on OPENROWSET, which allows querying data directly from the Data Lake.
 You can view the full Synapse sql script here:  
-[Azure Synapse SQL script)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
+[Azure Synapse SQL script)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql
 
 5. **Setting Up External Data Sources**
 To access data from the Data Lake and load it into the Synapse environment, external data sources were configured:
