@@ -1,10 +1,10 @@
-# Azure End to End Data Engineering Pipeline
+# Azure End to End Data Engineering Adventure Works Project
 
-In this project, we'll build an end-to-end Azure Data Engineering solution that covers everything from data ingestion to transformation and analytics. We'll be using Azure Data Factory, Azure Databricks, and Azure Synapse Analytics, along with a connection to Power BI for reporting and visualization.
+In this project, I'll build an end-to-end Azure Data Engineering solution that covers everything from data ingestion to transformation and analytics. I'll be using Azure Data Factory, Azure Databricks, and Azure Synapse Analytics, along with a connection to Power BI for reporting and visualization.
 
 ## Goal of the Project
 
-The goal is to create an Azure-based solution that seamlessly moves data from on-premises sources to the cloud. Specifically, we'll work with an On-premise Database (e.g., Microsoft SQL Server) and create a fully functional ETL pipeline using **Azure Data Factory for orchestration**, **Azure Databricks for data transformation** and **Azure Synapse Analytics for serving and analytics**.
+The goal is to create an Azure-based solution that seamlessly moves data from on-premises sources to the cloud. Specifically, I'll work with an On-premise Database (e.g., Microsoft SQL Server) and create a fully functional ETL pipeline using **Azure Data Factory for orchestration**, **Azure Databricks for data transformation** and **Azure Synapse Analytics for serving and analytics**.
 
 By the end of the project, the data will be ready to be connected to a **Power BI dashboard for visualization and reporting**, enabling stakeholders to derive insights.
 
@@ -18,7 +18,7 @@ By the end of the project, the data will be ready to be connected to a **Power B
 The goal of this phase is to set up a **dynamic data pipeline** that efficiently transfers data from an **HTTP source to Azure Data Lake Storage Gen2** (ADLS Gen2). The pipeline leverages dynamic parameters to handle multiple data sources and destinations, **automating the ingestion process**.
 
 ### ADLS Gen2
-We create a Data Lake with four folders: three for our data (bronze, silver, and gold), and one for storing parameters used in Data Factory.
+I create a Data Lake with four folders: three for our data (bronze, silver, and gold), and one for storing parameters used in Data Factory.
 
 ### Azure Data Factory
 #### Data Factory Architecture:
@@ -27,19 +27,19 @@ We create a Data Lake with four folders: three for our data (bronze, silver, and
 #### Steps:
 
 1. **Create a JSON file**  
-   - We use this JSON to create dynamic parameters that automate the extraction and loading of data.  
+   - I use this JSON to create dynamic parameters that automate the extraction and loading of data.  
    - The structure of the JSON is broken down below:
      - **`p_rel_url`** – Relative URL of the data source.  
      - **`p_sink_folder`** – Target folder in the ADLS Gen2 bronze layer.  
      - **`p_sink_file`** – Target file name and format.  
    - [ADF Pipeline JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
-   - We upload it to our Data Lake in the parameters folder.
+   - I upload it to our Data Lake in the parameters folder.
 2. **Create Linked service**
-   - We create 2 linked service, one for the source (http) and other one for the sink (storeagedatalake).
+   - I create 2 linked service, one for the source (http) and other one for the sink (storeagedatalake).
 3. **Create and configure the Lookup Activity**
    - A Lookup activity linked to an HTTP source is created with a dynamic relative URL, which is derived from the JSON parameter containing the p_rel_url value.
 4. **Create and configure the Foreach and Copydata Activities**  
-   - Once the Lookup activity is created, we use the ForEach iteration activity to include the Copy Data activity, which generates the folder and file structure defined in the JSON script. In the Copy Data activity, the source uses the p_rel_url items, while the sink uses the p_sink_folder and p_sink_file items.
+   - Once the Lookup activity is created, I use the ForEach iteration activity to include the Copy Data activity, which generates the folder and file structure defined in the JSON script. In the Copy Data activity, the source uses the p_rel_url items, while the sink uses the p_sink_folder and p_sink_file items.
 5. **Verify the stability of the connections and execute the pipeline**
    - **Result in raw data store (bronze)**:
      
