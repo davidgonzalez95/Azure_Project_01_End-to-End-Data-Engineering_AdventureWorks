@@ -2,6 +2,15 @@
 
 In this project, I'll build an end-to-end Azure Data Engineering solution that covers everything from data ingestion to transformation and analytics. I'll be using Azure Data Factory, Azure Databricks, and Azure Synapse Analytics, along with a connection to Power BI for reporting and visualization.
 
+## Index
+1. [Goal of the Project](#goal-of-the-project)
+2. [Implementation](#implementation)
+   - [Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)](#part-1-data-ingestion-adls-gen2-azure-data-factory)
+   - [Part 2: Data Transformation (Azure Databricks)](#part-2-data-transformation-azure-databricks)
+   - [Part 3: Serving (Azure Synapse: Data Views and External Tables)](#part-3-serving-azure-synapse-data-views-and-external-tables)
+   - [Part 4: Data Reporting (Power BI)](#part-4-data-reporting-power-bi)
+   - [Part 5: End-to-End Pipeline Testing (Azure Data Factory)](#part-5-end-to-end-pipeline-testing-azure-data-factory)
+
 ## Goal of the Project
 
 The goal is to create an Azure-based solution that seamlessly moves data from on-premises sources to the cloud. Specifically, I'll work with an On-premise Database (e.g., Microsoft SQL Server) and create a fully functional ETL pipeline using **Azure Data Factory for orchestration**, **Azure Databricks for data transformation** and **Azure Synapse Analytics for serving and analytics**.
@@ -46,12 +55,12 @@ I create a Data Lake with four folders: three for our data (bronze, silver, and 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Ingestion%20(Bronze%20folder).png)
 
 
-### Part 2: Data Transformation (Azure Databricks)
+## Part 2: Data Transformation (Azure Databricks)
 
-#### Objective:
+### Objective:
 The **purpose of the silver layer** in a data lake, using **Azure Databricks**, is to **provide cleaned, enriched, and transformed data** that is ready for further analytics and business intelligence processes. It acts as an intermediary between the raw ingested data (bronze layer) and the final, highly curated data (gold layer). 
 
-#### Considerations
+### Considerations
 - **Pre-processed Data:**  
   Since the data is sourced from Kaggle, it is already pre-processed and well-structured. Therefore, the typical data cleaning and enrichment processes, such as handling missing values, deduplication, and standardization, are not required in this case.
 
@@ -62,7 +71,7 @@ The **purpose of the silver layer** in a data lake, using **Azure Databricks**, 
   Despite the dataset’s small size, optimization techniques such as storing data in Parquet format and using Delta Lake for versioning and incremental updates are still applied to ensure scalability if data volume increases in the future.
 
 
-#### Databricks Workflow Overview:
+### Databricks Workflow Overview:
 
 The following steps are performed within Databricks to process the data effectively:
 You can view the full Databricks notebook here:  
@@ -92,12 +101,12 @@ You can view the full Databricks notebook here:
      
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png)
 
-### Part 3: **Serving (Azure Synapse: Data Views and External Tables)**
+## Part 3: **Serving (Azure Synapse: Data Views and External Tables)**
 
-#### Objective:
+### Objective:
 After transforming the data in the **Silver layer**, the processed data is structured within **Azure Synapse** to provide optimized query performance and facilitate data access. This process involves creating **views** and **external tables** to integrate data from the Data Lake, providing an easy way to work with the data without needing to move it into the Synapse SQL pool.
 
-#### **Steps Performed in Synapse:**
+### **Steps Performed in Synapse:**
 
 1. **Creating Master Key and Schema**
 - First, the **master key** for database encryption was created to ensure data security:
@@ -111,7 +120,7 @@ After transforming the data in the **Silver layer**, the processed data is struc
 3. **Creating Views for Data Access**
 Views were created on top of the data stored in the silver layer to simplify querying and present the data in a consumable format. These views are based on OPENROWSET, which allows querying data directly from the Data Lake.
 You can view the full Synapse sql script here:  
-[Azure Synapse SQL script)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql
+[Azure Synapse SQL script)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
 
 5. **Setting Up External Data Sources**
 To access data from the Data Lake and load it into the Synapse environment, external data sources were configured:
@@ -160,20 +169,20 @@ External tables were created to allow Synapse to access Parquet files stored in 
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png
 
-### Part 4: Data Reporting (Power BI)
+## Part 4: Data Reporting (Power BI)
 
-#### Objective:
+### Objective:
 Visualize and report the processed data.
 
-#### Steps:
+### Steps:
 1. Use Microsoft Power BI to retrieve data directly from the views using DirectQuery, ensuring that the data is automatically refreshed through the cloud pipeline.
 2. Build an interactive dashboard showcasing sales data and insights.
 
-### Part 5: End-to-End Pipeline Testing (Azure Data Factory)
+## Part 5: End-to-End Pipeline Testing (Azure Data Factory)
 
-#### Objective:
+### Objective:
 Automate and test the pipeline for continuous data integration.
 
-#### Steps:
+### Steps:
 1. Set up a Scheduled Trigger in Azure Data Factory, allowing the pipeline to run daily, automatically extracting, transforming, and loading new data.
 2. Test the trigger by running the pipeline and observing the before and after states of the data.
