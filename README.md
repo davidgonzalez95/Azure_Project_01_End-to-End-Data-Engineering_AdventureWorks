@@ -33,10 +33,37 @@
 ### Objective:
 <p align="justify">The purpose of this phase is to set up a <b>dynamic data pipeline</b> that efficiently transfers data from an <b>HTTP source to Azure Data Lake Storage Gen2</b> (ADLS Gen2). The pipeline leverages dynamic parameters to handle multiple data sources and destinations, <b>automating the ingestion process</b>.
 
-### Data Factory Architecture:
+###Pipeline Architecture:
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20factory%20architecture.png)
    
 ### Steps:
+  - **Creation a Dynamic Copy Activity:**
+    
+     **1- Creation of source connection:**
+    
+     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_source_inside.png" alt="image" width="500" height="auto">
+     
+     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_source.png" alt="image" width="500" height="auto">
+
+     **2- Creation of sink connection:**
+    
+     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_sink_inside.png" alt="image" width="500" height="auto">
+     
+     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_sink.png" alt="image" width="500" height="auto">
+
+  - **Creation of LookUp Activity by using json parameter:** [(Format of JSON)](https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Codes/Dynamic_Pipeline.json)
+    
+     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Parameter_of_LookUp_Activity.png" alt="image" width="500" height="auto">
+     
+  - **Creation of forEach Activity and put inside the Dynamic Copy:** (Extract the values from the LookUp Activity which uses the json script)
+    
+     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/ForEach_Activity.png" alt="image" width="500" height="auto">
+
+#### PL_Extract_Data results:
+
+   - **fact-data Folder:**
+
+     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/Storage_fact-data.png" alt="image" width="200" height="auto">
 
 1. **Create a JSON file**  
    - It is used a JSON to create dynamic parameters that automate the extraction and loading of data.  
