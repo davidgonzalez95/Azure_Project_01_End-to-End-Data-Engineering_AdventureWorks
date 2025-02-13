@@ -1,9 +1,7 @@
 # Azure End to End Data Engineering Adventure Works Project
 
-In this project, I'll build an end-to-end Azure Data Engineering solution that covers everything from data ingestion to transformation and analytics. I'll be using Azure Data Factory, Azure Databricks, and Azure Synapse Analytics, along with a connection to Power BI for reporting and visualization.
-
 ## Index
-1. [Goal of the Project](#goal-of-the-project)
+1. [Project Description](#project-description)
 2. [Implementation](#implementation)
    - [Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)](#part-1-data-ingestion-adls-gen2-azure-data-factory)
    - [Part 2: Data Transformation (Azure Databricks)](#part-2-data-transformation-azure-databricks)
@@ -11,11 +9,13 @@ In this project, I'll build an end-to-end Azure Data Engineering solution that c
    - [Part 4: Data Reporting (Power BI)](#part-4-data-reporting-power-bi)
    - [Part 5: End-to-End Pipeline Testing (Azure Data Factory)](#part-5-end-to-end-pipeline-testing-azure-data-factory)
 
-## Goal of the Project
+## Project Description
 
-The goal is to create an Azure-based solution that seamlessly moves data from on-premises sources to the cloud. Specifically, I'll work with an On-premise Database (e.g., Microsoft SQL Server) and create a fully functional ETL pipeline using **Azure Data Factory for orchestration**, **Azure Databricks for data transformation** and **Azure Synapse Analytics for serving and analytics**.
+In this project, I will build an end-to-end Azure Data Engineering solution that encompasses everything from data ingestion to transformation and analytics. The solution will leverage **Azure Data Factory**, **Azure Databricks**, and **Azure Synapse Analytics**, with a connection to **Power BI** for reporting and visualization.
 
-By the end of the project, the data will be ready to be connected to a **Power BI dashboard for visualization and reporting**, enabling stakeholders to derive insights.
+The primary objective is to create an Azure-based architecture **(Medallon Architecture)** that seamlessly moves data from on-premises sources to the cloud. Specifically, I will work with a Data Lake and design a fully functional ETL pipeline using **Azure Data Factory for orchestration**, **Azure Databricks for data transformation**, and **Azure Synapse Analytics for serving and analytics**.
+
+By the end of the project, the data will be ready to connect to a **Power BI dashboard for visualization and reporting**, enabling stakeholders to derive actionable insights.
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
