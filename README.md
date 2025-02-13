@@ -3,7 +3,8 @@
 ## Table of Contents
 
 1. [Project Description](#project-description)
-2. [Architecture](#architecture)
+2. [Technical Components](#technical-components)
+3. [Data Architecture](#data-architecture)
    - [Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)](#part-1-data-ingestion-adls-gen2-azure-data-factory)
    - [Part 2: Data Transformation (Azure Databricks)](#part-2-data-transformation-azure-databricks)
    - [Part 3: Serving (Azure Synapse: Data Views and External Tables)](#part-3-serving-azure-synapse-data-views-and-external-tables)
@@ -12,15 +13,20 @@
 
 ## Project Description
 
-In this project, I will build an end-to-end Azure Data Engineering solution that encompasses everything from data ingestion to transformation and analytics. The solution will leverage **Azure Data Factory**, **Azure Databricks**, and **Azure Synapse Analytics**, with a connection to **Power BI** for reporting and visualization.
+This project focuses on building a comprehensive, **end-to-end Azure Data Engineering solution** that seamlessly integrates data ingestion, transformation, and analytics. It is designed to follow the principles of the **Medallion Architecture**, ensuring a structured and scalable approach to data processing. By implementing this architecture, the solution facilitates an efficient and organized data flow, transitioning from raw ingestion to progressively refined and enriched datasets. These optimized datasets will ultimately support advanced analytics and reporting, enabling stakeholders to derive meaningful insights and make data-driven decisions with confidence.
 
-The primary objective is to create an Azure-based architecture **(Medallon Architecture)** that seamlessly moves data from on-premises sources to the cloud. Specifically, I will work with a Data Lake and design a fully functional ETL pipeline using **Azure Data Factory for orchestration**, **Azure Databricks for data transformation**, and **Azure Synapse Analytics for serving and analytics**.
+## Technical Components <a name="technical-components"></a>
+ 
+ - **GitHub:** Data source.
+ - **Azure Data Lake:** Centralized storage for transformed data.
+ - **Azure Data Factory (ADF):** Data integration and orchestration platform.
+ - **Databricks:** Data transformation.
+ - **Azure Synapse Analytics:** Data analysis.
+ - **Power BI:** Visualization and reporting.
 
-By the end of the project, the data will be ready to connect to a **Power BI dashboard for visualization and reporting**, enabling stakeholders to derive actionable insights.
+## Data Architecture <a name="data-architecture"></a>
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
-
-## Architecture:
 
 ## Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)
 
