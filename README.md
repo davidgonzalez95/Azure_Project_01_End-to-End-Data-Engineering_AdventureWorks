@@ -1,8 +1,9 @@
 # Azure End to End Data Engineering Adventure Works Project
 
 ## Table of Contents
+
 1. [Project Description](#project-description)
-2. [Implementation](#implementation)
+2. [Architecture](#architecture)
    - [Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)](#part-1-data-ingestion-adls-gen2-azure-data-factory)
    - [Part 2: Data Transformation (Azure Databricks)](#part-2-data-transformation-azure-databricks)
    - [Part 3: Serving (Azure Synapse: Data Views and External Tables)](#part-3-serving-azure-synapse-data-views-and-external-tables)
