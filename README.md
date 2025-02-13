@@ -13,7 +13,7 @@
 
 ## Project Description
 
-This project focuses on building a comprehensive, **end-to-end Azure Data Engineering solution** that seamlessly integrates data ingestion, transformation, and analytics. It is designed to follow the principles of the **Medallion Architecture**, ensuring a structured and scalable approach to data processing. By implementing this architecture, the solution facilitates an efficient and organized data flow, transitioning from raw ingestion to progressively refined and enriched datasets. These optimized datasets will ultimately support advanced analytics and reporting, enabling stakeholders to derive meaningful insights and make data-driven decisions with confidence.
+<p align="justify"> This project focuses on building a comprehensive, **end-to-end Azure Data Engineering solution** that seamlessly integrates data ingestion, transformation, and analytics. It is designed to follow the principles of the **Medallion Architecture**, ensuring a structured and scalable approach to data processing. By implementing this architecture, the solution facilitates an efficient and organized data flow, transitioning from raw ingestion to progressively refined and enriched datasets. These optimized datasets will ultimately support advanced analytics and reporting, enabling stakeholders to derive meaningful insights and make data-driven decisions with confidence. </p>
 
 ## Technical Components <a name="technical-components"></a>
  
