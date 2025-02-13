@@ -1,6 +1,6 @@
 # Azure End to End Data Engineering Adventure Works Project
 
-## Index
+## Table of Contents
 1. [Project Description](#project-description)
 2. [Implementation](#implementation)
    - [Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)](#part-1-data-ingestion-adls-gen2-azure-data-factory)
@@ -19,7 +19,7 @@ By the end of the project, the data will be ready to connect to a **Power BI das
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
-## Implementation:
+## Architecture:
 
 ## Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)
 
