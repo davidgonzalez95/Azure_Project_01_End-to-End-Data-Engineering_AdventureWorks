@@ -29,19 +29,14 @@
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
-## Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)
-
+## 1-Azure Data Factory (Ingestion)
 ### Objective:
-The goal of this phase is to set up a **dynamic data pipeline** that efficiently transfers data from an **HTTP source to Azure Data Lake Storage Gen2** (ADLS Gen2). The pipeline leverages dynamic parameters to handle multiple data sources and destinations, **automating the ingestion process**.
+The purpose of this phase is to set up a **dynamic data pipeline** that efficiently transfers data from an **HTTP source to Azure Data Lake Storage Gen2** (ADLS Gen2). The pipeline leverages dynamic parameters to handle multiple data sources and destinations, **automating the ingestion process**.
 
-### ADLS Gen2
-I create a Data Lake with four folders: three for our data (bronze, silver, and gold), and one for storing parameters used in Data Factory.
-
-### Azure Data Factory
-#### Data Factory Architecture:
+### Data Factory Architecture:
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20factory%20architecture.png)
    
-#### Steps:
+### Steps:
 
 1. **Create a JSON file**  
    - I use this JSON to create dynamic parameters that automate the extraction and loading of data.  
