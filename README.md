@@ -31,7 +31,7 @@
 
 ## 1-Azure Data Factory (Ingestion)
 ### Objective:
-The purpose of this phase is to set up a **dynamic data pipeline** that efficiently transfers data from an **HTTP source to Azure Data Lake Storage Gen2** (ADLS Gen2). The pipeline leverages dynamic parameters to handle multiple data sources and destinations, **automating the ingestion process**.
+<p align="justify">The purpose of this phase is to set up a <b>dynamic data pipeline</b> that efficiently transfers data from an <b>HTTP source to Azure Data Lake Storage Gen2</b> (ADLS Gen2). The pipeline leverages dynamic parameters to handle multiple data sources and destinations, <b>automating the ingestion process</b>.
 
 ### Data Factory Architecture:
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20factory%20architecture.png)
@@ -39,13 +39,13 @@ The purpose of this phase is to set up a **dynamic data pipeline** that efficien
 ### Steps:
 
 1. **Create a JSON file**  
-   - I use this JSON to create dynamic parameters that automate the extraction and loading of data.  
+   - It is used a JSON to create dynamic parameters that automate the extraction and loading of data.  
    - The structure of the JSON is broken down below:
      - **`p_rel_url`** – Relative URL of the data source.  
      - **`p_sink_folder`** – Target folder in the ADLS Gen2 bronze layer.  
      - **`p_sink_file`** – Target file name and format.  
    - [ADF Pipeline JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
-   - I upload it to our Data Lake in the parameters folder.
+   - Then it is uploaded it into our Data Lake in the parameters folder.
 2. **Create Linked service**
    - I create 2 linked service, one for the source (http) and other one for the sink (storeagedatalake).
 3. **Create and configure the Lookup Activity**
