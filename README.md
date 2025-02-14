@@ -1,15 +1,32 @@
 # Azure End to End Data Engineering Adventure Works Project
 
-## Table of Contents
+## Table of Contents  
 
-1. [Project Description](#project-description)
-2. [Technical Components](#technical-components)
-3. [Data Architecture](#data-architecture)
-   - [Part 1: Data Ingestion (ADLS Gen2 / Azure Data Factory)](#part-1-data-ingestion-adls-gen2-azure-data-factory)
-   - [Part 2: Data Transformation (Azure Databricks)](#part-2-data-transformation-azure-databricks)
-   - [Part 3: Serving (Azure Synapse: Data Views and External Tables)](#part-3-serving-azure-synapse-data-views-and-external-tables)
-   - [Part 4: Data Reporting (Power BI)](#part-4-data-reporting-power-bi)
-   - [Part 5: End-to-End Pipeline Testing (Azure Data Factory)](#part-5-end-to-end-pipeline-testing-azure-data-factory)
+1. [Project Description](#project-description)  
+2. [Technical Components](#technical-components)  
+3. [Data Architecture](#data-architecture)  
+4. [1- Azure Data Factory (Ingestion and Orchestration)](#1-azure-data-factory-ingestion-and-orchestration)  
+   - [Objective](#objective-adf)  
+   - [Pipeline Architecture](#pipeline-architecture)  
+   - [PL_Extract_Raw_Data](#pl_extract_raw_data)  
+   - [PL_Trans_Load](#pl_trans_load)  
+5. [2- Azure Databricks (Transformation)](#2-azure-databricks-transformation)  
+   - [Objective](#objective-databricks)  
+   - [Considerations](#considerations)  
+   - [Development Notebook](#development-notebook)  
+   - [Production Notebook](#production-notebook)  
+6. [3- Azure Synapse Analytics (Serving)](#3-azure-synapse-analytics-serving)  
+   - [Objective](#objective-synapse)  
+   - [Steps](#steps-synapse)  
+     - [Creating Master Key and Schema](#creating-master-key-and-schema)  
+     - [Creating Views for Data Access](#creating-views-for-data-access)  
+     - [Setting Up External Data Sources](#setting-up-external-data-sources)  
+     - [Creating External File Format for Parquet](#creating-external-file-format-for-parquet)  
+     - [Creating External Tables](#creating-external-tables)  
+     - [Served Data Result (Gold Layer)](#served-data-result-gold-layer)  
+7. [4- Data Reporting (Power BI)](#4-data-reporting-power-bi)  
+   - [Objective](#objective-power-bi)  
+   - [Steps](#steps-power-bi)
 
 ## Project Description
 
@@ -181,7 +198,7 @@ You can view the notebook here:
 [**Production Notebook**](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Prod%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
 
-## Azure Synapse Analytics (Serving)**
+## 3- Azure Synapse Analytics (Serving)
 
 ### Objective:
 After transforming the data in the **Silver layer**, the processed data is structured within **Azure Synapse** to provide optimized query performance and facilitate data access. This process involves creating **views** and **external tables** to integrate data from the Data Lake, providing an easy way to work with the data without needing to move it into the Synapse SQL pool.
