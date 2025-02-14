@@ -81,17 +81,17 @@ The architecture is based on the following steps:
     
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_forEach_settings.png" alt="image" width="480" height="auto">
 
-#### PL_Extract_Data results:
+  - **PL_Extract_Data results:**
 
-   - **Bronze Folder:**
+     **Bronze Folder:**
 
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/Data%20Ingestion%20(Bronze%20folder).png" alt="image" width="500" height="auto">
 
-### **2- PL_Trans_Load:**<a name="pl_trans_load"></a>
+#### **2- PL_Trans_Load:**<a name="pl_trans_load"></a>
 
 <p align="justify">In this pipeline, an extraction of the transformations made in the notebook <b>Prod - Databricks Transformations (Silver_layer)</b> has been carried out.</p>
 
-    <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans.png" alt="image" width="250" height="auto">
+<img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans.png" alt="image" width="250" height="auto">
 
 ##### **Steps:**
   - **Creation an Access Token inside of Databricks:**
@@ -103,10 +103,11 @@ The architecture is based on the following steps:
   - **Creation a Notebook Activity:**
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans_settings.png" alt="image" width="500" height="auto">
 
+  - **PL_Trans_Load results:**
+  - 
+     **Silver Folder:**
 
-
-
-
+     <img src="https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png" alt="image" width="500" height="auto">
 
 ## Part 2: Data Transformation (Azure Databricks)
 
