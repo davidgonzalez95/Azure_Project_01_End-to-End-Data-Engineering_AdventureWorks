@@ -29,60 +29,76 @@
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
-## 1-Azure Data Factory (Ingestion)
-### Objective:
-<p align="justify">The purpose of this phase is to set up a <b>dynamic data pipeline</b> that efficiently transfers data from an <b>HTTP source to Azure Data Lake Storage Gen2</b> (ADLS Gen2). The pipeline leverages dynamic parameters to handle multiple data sources and destinations, <b>automating the ingestion process</b>.
+## 1-Azure Data Factory (Ingestion and Orchestration)
+### Pipeline Architecture <a name="pipeline-architecture"></a>
 
-###Pipeline Architecture:
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20factory%20architecture.png)
-   
-### Steps:
+<p align="justify">A <b>modular pipeline structure</b> was chosen to improve reusability, maintainability, and scalability. By breaking processes into smaller modules, updates and reuse can be done without affecting the main workflow. It also allows for more efficient error management, optimizes performance by enabling parallel execution, and enhances the understanding of the workflow. This modular approach also <b>simplifies version control</b> and deployment of specific changes without disrupting the overall system.</p>
+
+The architecture is based on the following steps:
+
+<img src="" alt="image" width="500" height="auto">
+
+#### **1- PL_Extract_Raw_Data:** <a name="pl_extract_raw_data"></a>
+
+<p align="justify">Extracting sales data for January from the subsidiaries' SharePoint repositories (simulated in GitHub), by using a <b>dynamic copy parameter to extract the path URL and file destination</b>b> within a forEach activity that reads the corresponding url address and loads the data through a json file placed in the Lookup Activity.</p>
+
+<img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data.png" alt="image" width="500" height="auto">
+
+##### **Steps:**
   - **Creation a Dynamic Copy Activity:**
     
      **1- Creation of source connection:**
     
-     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_source_inside.png" alt="image" width="500" height="auto">
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_source_inside.png" alt="image" width="500" height="auto">
      
-     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_source.png" alt="image" width="500" height="auto">
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_source.png" alt="image" width="500" height="auto">
 
      **2- Creation of sink connection:**
     
-     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_sink_inside.png" alt="image" width="500" height="auto">
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_sink_inside.png" alt="image" width="500" height="auto">
      
-     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Dynamic_Copy_Activity_sink.png" alt="image" width="500" height="auto">
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_sink_inside.png" alt="image" width="500" height="auto">
 
-  - **Creation of LookUp Activity by using json parameter:** [(Format of JSON)](https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Codes/Dynamic_Pipeline.json)
-    
-     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/Parameter_of_LookUp_Activity.png" alt="image" width="500" height="auto">
+  - **Creation of LookUp Activity by using json parameter:**
+     **1- Create a JSON file:** It is used a JSON to create dynamic parameters that automate the extraction and loading of data. The structure of the JSON is broken down below:
+        - **`p_rel_url`** – Relative URL of the data source.  
+        - **`p_sink_folder`** – Target folder in the ADLS Gen2 bronze layer.  
+        - **`p_sink_file`** – Target file name and format.
+          Then it is uploaded it into our Data Lake in the parameters folder.[Format of JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
+
+     **2- Create a LookUp Activity:**    
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_LookUp_source_inside.png" alt="image" width="500" height="auto">
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_LookUp_source.png" alt="image" width="500" height="auto">
      
   - **Creation of forEach Activity and put inside the Dynamic Copy:** (Extract the values from the LookUp Activity which uses the json script)
     
-     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/PL_Extract_Data_Description/ForEach_Activity.png" alt="image" width="500" height="auto">
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_forEach_settings.png" alt="image" width="500" height="auto">
 
 #### PL_Extract_Data results:
 
-   - **fact-data Folder:**
+   - **Bronze Folder:**
 
-     <img src="https://github.com/davidgonzalez95/Azure-Data-Factory-Data-Orchestration-Project/blob/main/Pictures/Storage_fact-data.png" alt="image" width="200" height="auto">
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/Data%20Ingestion%20(Bronze%20folder).png" alt="image" width="200" height="auto">
 
-1. **Create a JSON file**  
-   - It is used a JSON to create dynamic parameters that automate the extraction and loading of data.  
-   - The structure of the JSON is broken down below:
-     - **`p_rel_url`** – Relative URL of the data source.  
-     - **`p_sink_folder`** – Target folder in the ADLS Gen2 bronze layer.  
-     - **`p_sink_file`** – Target file name and format.  
-   - [ADF Pipeline JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
-   - Then it is uploaded it into our Data Lake in the parameters folder.
-2. **Create Linked service**
-   - I create 2 linked service, one for the source (http) and other one for the sink (storeagedatalake).
-3. **Create and configure the Lookup Activity**
-   - A Lookup activity linked to an HTTP source is created with a dynamic relative URL, which is derived from the JSON parameter containing the p_rel_url value.
-4. **Create and configure the Foreach and Copydata Activities**  
-   - Once the Lookup activity is created, I use the ForEach iteration activity to include the Copy Data activity, which generates the folder and file structure defined in the JSON script. In the Copy Data activity, the source uses the p_rel_url items, while the sink uses the p_sink_folder and p_sink_file items.
-5. **Verify the stability of the connections and execute the pipeline**
-   - **Result in raw data store (bronze)**:
-     
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Ingestion%20(Bronze%20folder).png)
+### **2- PL_Trans_Load:**<a name="pl_trans_load"></a>
+
+<p align="justify">In this pipeline, an extraction of the transformations made in the notebook <b>Prod - Databricks Transformations (Silver_layer)</b> has been carried out.</p>
+
+    <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans.png" alt="image" width="250" height="auto">
+
+##### **Steps:**
+  - **Creation an Access Token inside of Databricks:**
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans_databricks_linked_Access_Token.png" alt="image" width="500" height="auto">
+
+  - **Creation a Databricks connection:**
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans_databricks_linked.png" alt="image" width="500" height="auto">
+
+  - **Creation a Notebook Activity:**
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans_settings.png" alt="image" width="500" height="auto">
+
+
+
+
 
 
 ## Part 2: Data Transformation (Azure Databricks)
