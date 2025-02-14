@@ -64,13 +64,11 @@ The architecture is based on the following steps:
   - **Creation of LookUp Activity by using json parameter:**
     
      **1- Create a JSON file:** It is used a JSON to create dynamic parameters that automate the extraction and loading of data. The structure of the JSON is broken down below:
-    
-        - **p_rel_url** – Relative URL of the data source.  
-        - **p_sink_folder** – Target folder in the ADLS Gen2 bronze layer.  
-        - **p_sink_file** – Target file name and format.
-    
-          Then it is uploaded it into our Data Lake in the parameters folder.
-          [Format of JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
+       - **p_rel_url:** Relative URL of the data source.  
+       - **p_sink_folder:** Target folder in the ADLS Gen2 bronze layer.  
+       - **p_sink_file:** Target file name and format.
+
+         Then it is uploaded it into our Data Lake in the parameters folder. [Format of JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
 
 
      **2- Create a LookUp Activity:**    
