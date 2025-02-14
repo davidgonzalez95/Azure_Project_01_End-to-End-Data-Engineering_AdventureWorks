@@ -116,20 +116,20 @@ The architecture is based on the following steps:
 
      <img src="https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png" alt="image" width="400" height="auto">
 
-## Part 2: Data Transformation (Azure Databricks)
+## 2- Azure Databricks (Transformation)<a name="azure-databricks"></a>
 
 ### Objective:
-The **purpose of the silver layer** in a data lake, using **Azure Databricks**, is to **provide cleaned, enriched, and transformed data** that is ready for further analytics and business intelligence processes. It acts as an intermediary between the raw ingested data (bronze layer) and the final, highly curated data (gold layer). 
+<p align="justify">The <b>purpose of the silver layer</b> in a data lake, using <b>Azure Databricks</b>, is to <b>provide cleaned, enriched, and transformed data</b> that is ready for further analytics and business intelligence processes. It acts as an intermediary between the raw ingested data (bronze layer) and the final, highly curated data (gold layer).</p> 
 
 ### Considerations
 - **Pre-processed Data:**  
-  Since the data is sourced from Kaggle, it is already pre-processed and well-structured. Therefore, the typical data cleaning and enrichment processes, such as handling missing values, deduplication, and standardization, are not required in this case.
+  <p align="justify">Since the data is sourced from Kaggle, it is already pre-processed and well-structured. Therefore, the typical data cleaning and enrichment processes, such as handling missing values, deduplication, and standardization, are not required in this case.</p>
 
 - **Single-Node Cluster:**  
-  Due to the relatively small size of the dataset, a single-node Databricks cluster is sufficient to handle the processing tasks efficiently. This setup helps reduce costs while still providing the necessary compute resources for transformation and validation tasks.
+  <p align="justify">Due to the relatively small size of the dataset, a single-node Databricks cluster is sufficient to handle the processing tasks efficiently. This setup helps reduce costs while still providing the necessary compute resources for transformation and validation tasks.</p>
 
 - **Performance Optimization:**  
-  Despite the dataset’s small size, optimization techniques such as storing data in Parquet format and using Delta Lake for versioning and incremental updates are still applied to ensure scalability if data volume increases in the future.
+  <p align="justify">Despite the dataset’s small size, optimization techniques such as storing data in Parquet format and using Delta Lake for versioning and incremental updates are still applied to ensure scalability if data volume increases in the future.</p>
 
 
 ### Databricks Workflow Overview:
