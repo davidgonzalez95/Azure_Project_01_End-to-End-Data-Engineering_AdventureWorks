@@ -49,7 +49,7 @@ The architecture is based on the following steps:
     
      **1- Creation of source connection:**
     
-     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_source_inside.png" alt="image" width="340" height="auto">\n
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_source_inside.png" alt="image" width="340" height="auto">    
 
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_source.png" alt="image" width="600" height="auto">
 
@@ -58,28 +58,30 @@ The architecture is based on the following steps:
     
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_sink_inside.png" alt="image" width="600" height="auto">
      
-     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_sink_inside.png" alt="image" width="600" height="auto">\n\n
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_CopyActivity_sink_inside.png" alt="image" width="600" height="auto">
 
 
   - **Creation of LookUp Activity by using json parameter:**
     
      **1- Create a JSON file:** It is used a JSON to create dynamic parameters that automate the extraction and loading of data. The structure of the JSON is broken down below:
+    
         - **p_rel_url** – Relative URL of the data source.  
         - **p_sink_folder** – Target folder in the ADLS Gen2 bronze layer.  
         - **p_sink_file** – Target file name and format.
     
-          Then it is uploaded it into our Data Lake in the parameters folder.[Format of JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
+          Then it is uploaded it into our Data Lake in the parameters folder.
+          [Format of JSON](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Dynamic_Pipeline.json)
 
 
      **2- Create a LookUp Activity:**    
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_LookUp_source_inside.png" alt="image" width="500" height="auto">
      
-     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_LookUp_source.png" alt="image" width="500" height="auto">\n\n
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_LookUp_source.png" alt="image" width="500" height="auto">
 
      
   - **Creation of forEach Activity and put inside the Dynamic Copy:** (Extract the values from the LookUp Activity which uses the json script)
     
-     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_forEach_settings.png" alt="image" width="500" height="auto">\n\n
+     <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data_forEach_settings.png" alt="image" width="500" height="auto">
 
 #### PL_Extract_Data results:
 
