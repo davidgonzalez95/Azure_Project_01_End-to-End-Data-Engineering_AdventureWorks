@@ -29,7 +29,11 @@
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
-## 1-Azure Data Factory (Ingestion and Orchestration)
+## 1-Azure Data Factory (Ingestion and Orchestration)<a name="azure-data-factory"></a>
+### Objective <a name="objective-adf"></a>
+
+<p align="justify">The purpose of this section in the README is to explain the modular architecture of the pipelines implemented in Azure Data Factory, detailing their structure and functionality for data <b>ingestion</b>, <b>transformation</b>, and <b>orchestration</b>. The main goal is to highlight how the architecture is designed to be efficient, reusable, and scalable, facilitating maintenance and version control.</p>
+
 ### Pipeline Architecture <a name="pipeline-architecture"></a>
 
 <p align="justify">A <b>modular pipeline structure</b> was chosen to improve reusability, maintainability, and scalability. By breaking processes into smaller modules, updates and reuse can be done without affecting the main workflow. It also allows for more efficient error management, optimizes performance by enabling parallel execution, and enhances the understanding of the workflow. This modular approach also <b>simplifies version control</b> and deployment of specific changes without disrupting the overall system.</p>
