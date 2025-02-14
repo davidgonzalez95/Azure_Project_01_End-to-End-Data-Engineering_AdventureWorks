@@ -132,11 +132,18 @@ The architecture is based on the following steps:
   <p align="justify">Despite the dataset’s small size, optimization techniques such as storing data in Parquet format and using Delta Lake for versioning and incremental updates are still applied to ensure scalability if data volume increases in the future.</p>
 
 
-### Databricks Workflow Overview:
+### Development and Production Notebooks Overview:
 
-The following steps are performed within Databricks to process the data effectively:
-You can view the full Databricks notebook here:  
-[Databricks Notebook (Silver_layer)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Databricks%20Transformations%20(Silver_layer).ipynb)
+<p align="justify">To implement the transformation process effectively, two Databricks notebooks were created:</p>
+
+1. Development Notebook: Used for building and testing the transformation logic.
+
+
+2. Production Notebook: Optimized for automated runs in the pipeline.
+
+### Development Notebook:
+
+The development notebook consists of the following four parts:
 
 1. **Data Access Using App**  
    - Connect to the data source using the appropriate application and authentication methods.  
@@ -157,10 +164,23 @@ You can view the full Databricks notebook here:
    - Perform initial exploratory analysis on the processed data.  
    - Generate key sales insights and trends.  
    - Visualize results using Databricks built-in visualization tools.
-   - 
-6. **Result in tranformation store (silver)**:
-     
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png)
+
+You can view the Development notebook here:  
+[Databricks Notebook (Silver_layer)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Databricks%20Transformations%20(Silver_layer).ipynb)
+
+### Production Notebook:
+
+<p align="justify">Once the development notebook was verified and tested, a separate production notebook was created with modifications to ensure it is optimized for automated, scheduled runs. The production notebook focuses exclusively on the data extraction, loading, and transformation steps, ensuring efficient execution without additional overhead. It is fully integrated into the Azure Data Factory pipeline, providing a stable and consistent data processing workflow. The following adjustments were made:</p>
+
+- **Markdown cells removed:** To streamline execution by removing unnecessary documentation.
+
+- **Display cells removed:** To eliminate outputs used only for exploratory purposes.
+
+- **Quick Sales Analysis section removed:** Since it was only relevant for development and not part of the production pipeline.
+
+You can view the Production notebook here:  
+[Databricks Notebook (Silver_layer)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Databricks%20Transformations%20(Silver_layer).ipynb)
+
 
 ## Part 3: **Serving (Azure Synapse: Data Views and External Tables)**
 
