@@ -164,7 +164,7 @@ The development notebook consists of the following four parts:
    - Generate key sales insights and trends.  
    - Visualize results using Databricks built-in visualization tools.
 
-You can view the Development notebook here:  
+You can view the notebook here:  
 [**Development Notebook**](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Dev%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
 ### Production Notebook:
@@ -177,16 +177,16 @@ You can view the Development notebook here:
 
 - **Quick Sales Analysis section removed:** Since it was only relevant for development and not part of the production pipeline.
 
-You can view the Production notebook here:  
+You can view the notebook here:  
 [**Production Notebook**](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Prod%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
 
-## Part 3: **Serving (Azure Synapse: Data Views and External Tables)**
+## Azure Synapse Analytics (Serving)**
 
 ### Objective:
 After transforming the data in the **Silver layer**, the processed data is structured within **Azure Synapse** to provide optimized query performance and facilitate data access. This process involves creating **views** and **external tables** to integrate data from the Data Lake, providing an easy way to work with the data without needing to move it into the Synapse SQL pool.
 
-### **Steps Performed in Synapse:**
+### **Steps:**
 
 1. **Creating Master Key and Schema**
 - First, the **master key** for database encryption was created to ensure data security:
