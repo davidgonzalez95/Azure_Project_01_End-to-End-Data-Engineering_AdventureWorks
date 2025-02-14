@@ -136,10 +136,9 @@ The architecture is based on the following steps:
 
 <p align="justify">To implement the transformation process effectively, two Databricks notebooks were created:</p>
 
-1. Development Notebook: Used for building and testing the transformation logic.
+- **Development Notebook:** Used for building and testing the transformation logic.
 
-
-2. Production Notebook: Optimized for automated runs in the pipeline.
+- **Production Notebook:** Optimized for automated runs in the pipeline.
 
 ### Development Notebook:
 
