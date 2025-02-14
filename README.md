@@ -95,12 +95,15 @@ The architecture is based on the following steps:
 
 ##### **Steps:**
   - **Creation an Access Token inside of Databricks:**
+    
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans_databricks_linked_Access_Token.png" alt="image" width="500" height="auto">
 
   - **Creation a Databricks connection:**
+    
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans_databricks_linked.png" alt="image" width="500" height="auto">
 
   - **Creation a Notebook Activity:**
+    
      <img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Load_Trans/PL_Load_Trans_settings.png" alt="image" width="500" height="auto">
 
   - **PL_Trans_Load results:**
