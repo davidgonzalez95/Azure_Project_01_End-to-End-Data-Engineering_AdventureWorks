@@ -42,7 +42,7 @@ The architecture is based on the following steps:
 
 <p align="justify">Extracting sales data for January from the subsidiaries' SharePoint repositories (simulated in GitHub), by using a <b>dynamic copy parameter to extract the path URL and file destination</b>b> within a forEach activity that reads the corresponding url address and loads the data through a json file placed in the Lookup Activity.</p>
 
-<img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data.png" alt="image" width="500" height="auto">\n\n
+<img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Extract_Raw_Data/PL_Extract_Raw_Data.png" alt="image" width="500" height="auto">
 
 ##### **Steps:**
   - **Creation a Dynamic Copy Activity:**
