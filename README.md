@@ -165,7 +165,7 @@ The development notebook consists of the following four parts:
    - Visualize results using Databricks built-in visualization tools.
 
 You can view the Development notebook here:  
-[Databricks Notebook (Silver_layer)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Databricks%20Transformations%20(Silver_layer).ipynb)
+[Dev - Databricks Transformations (Silver layer] (https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Dev%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
 ### Production Notebook:
 
@@ -178,7 +178,7 @@ You can view the Development notebook here:
 - **Quick Sales Analysis section removed:** Since it was only relevant for development and not part of the production pipeline.
 
 You can view the Production notebook here:  
-[Databricks Notebook (Silver_layer)](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Databricks%20Transformations%20(Silver_layer).ipynb)
+[Prod - Databricks Transformations (Silver layer](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Prod%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
 
 ## Part 3: **Serving (Azure Synapse: Data Views and External Tables)**
