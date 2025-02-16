@@ -264,7 +264,7 @@ External tables were created to allow Synapse to access Parquet files stored in 
    
 7. **Result in Served data store (gold)**:
 
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png
+   ![image](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/KPIs%20(Gold%20Folder).png)
 
 ## Part 4: Data Reporting (Power BI)
 
