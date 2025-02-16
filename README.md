@@ -5,23 +5,23 @@
 - [Project Description](#project-description)
 - [Technical Components](#technical-components)
 - [Data Architecture](#data-architecture)
-- [1- Azure Data Factory (Ingestion and Orchestration)](#azure-data-factory)
+- [Azure Data Factory (Ingestion and Orchestration)](#azure-data-factory)
   - [Objective](#objective-adf)
   - [Pipeline Architecture](#pipeline-architecture)
   - [1- PL_Extract_Raw_Data](#pl_extract_raw_data)
     - [Steps](#steps-extract-raw)
   - [2- PL_Trans_Load](#pl_trans_load)
     - [Steps](#steps-trans-load)
-- [2- Azure Databricks (Transformation)](#azure-databricks)
+- [Azure Databricks (Transformation)](#azure-databricks)
   - [Objective](#objective-databricks)
   - [Considerations](#considerations)
   - [Development and Production Notebooks Overview](#development-and-production)
   - [Development Notebook](#development-notebook)
   - [Production Notebook](#production-notebook)
-- [3- Azure Synapse Analytics (Serving)](#azure-synapse-analytics)
+- [Azure Synapse Analytics (Serving)](#azure-synapse-analytics)
   - [Objective](#objective-synapse)
   - [Steps](#steps-synapse)
-- [4- Power BI (Visualization)](#power-bi)
+- [Power BI (Visualization)](#power-bi)
   - [Objective](#objective-powerbi)
   - [Steps](#steps-powerbi)
   - [Visualizations](#visualizations)
@@ -44,7 +44,7 @@
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
-## 1-Azure Data Factory (Ingestion and Orchestration) <a name="azure-data-factory"></a>
+## Azure Data Factory (Ingestion and Orchestration) <a name="azure-data-factory"></a>
 ### Objective <a name="objective-adf"></a>
 
 <p align="justify">The purpose of this section in the README is to explain the modular architecture of the pipelines implemented in Azure Data Factory, detailing their structure and functionality for data <b>ingestion</b>, <b>transformation</b>, and <b>orchestration</b>. The main goal is to highlight how the architecture is designed to be efficient, reusable, and scalable, facilitating maintenance and version control.</p>
@@ -131,7 +131,7 @@ The architecture is based on the following steps:
 
      <img src="https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png" alt="image" width="400" height="auto">
 
-## 2- Azure Databricks (Transformation) <a name="azure-databricks"></a>
+## Azure Databricks (Transformation) <a name="azure-databricks"></a>
 ### Objective: <a name="objective-databricks"></a>
 <p align="justify">The <b>purpose of the silver layer</b> in a data lake, using <b>Azure Databricks</b>, is to <b>provide cleaned, enriched, and transformed data</b> that is ready for further analytics and business intelligence processes. It acts as an intermediary between the raw ingested data (bronze layer) and the final, highly curated data (gold layer).</p> 
 
@@ -195,7 +195,7 @@ You can view the notebook here:
 [**Production Notebook**](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Prod%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
 
-## 3- Azure Synapse Analytics (Serving) <a name="azure-synapse-analytics"></a>
+## Azure Synapse Analytics (Serving) <a name="azure-synapse-analytics"></a>
 ### Objective: <a name="objective-synapse"></a>
 After transforming the data in the **Silver layer**, the processed data is structured within **Azure Synapse** to provide optimized query performance and facilitate data access. This process involves creating **views** and **external tables** to integrate data from the Data Lake, providing an easy way to work with the data without needing to move it into the Synapse SQL pool.
 
@@ -254,7 +254,7 @@ External tables were created to allow Synapse to access Parquet files stored in 
 
    ![image](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/KPIs%20(Gold%20Folder).png)
 
-## 4- Power BI (Visualization) <a name="power-bi"></a>
+## Power BI (Visualization) <a name="power-bi"></a>
 ### Objective: <a name="objective-powerbi"></a>
 Visualize and report the processed data.
 
