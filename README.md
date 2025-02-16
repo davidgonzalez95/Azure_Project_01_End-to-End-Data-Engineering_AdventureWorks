@@ -217,7 +217,7 @@ After transforming the data in the **Silver layer**, the processed data is struc
 3. **Creating Views for Data Access**
 Views were created on top of the data stored in the silver layer to simplify querying and present the data in a consumable format. These views are based on OPENROWSET, which allows querying data directly from the Data Lake.
 You can view the full Synapse sql script here:  
-[Azure Synapse SQL script](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
+[Azure Synapse Views](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
 
 5. **Setting Up External Data Sources**
 To access data from the Data Lake and load it into the Synapse environment, external data sources were configured:
@@ -252,15 +252,7 @@ To access data from the Data Lake and load it into the Synapse environment, exte
 6. **Creating External Tables**
 External tables were created to allow Synapse to access Parquet files stored in the Data Lake while enabling structured querying within Synapse.
 - Create External Table for Sales Data:
-   ```sql
-   CREATE EXTERNAL TABLE gold.ext_sales
-   WITH (
-      LOCATION = 'ext_sales',
-      DATA_SOURCE = source_gold,
-      FILE_FORMAT = format_parquet
-   )
-   AS
-   SELECT * FROM gold.sales;
+  [Azure Synapse External Tables](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
    
 7. **Result in Served data store (gold)**:
 
