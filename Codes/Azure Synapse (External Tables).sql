@@ -23,9 +23,9 @@ WITH
     DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
 )
 
--------------------------------------
--- CREATE EXTERNAL TABLE EXT_SALES --
--------------------------------------
+---------------------------------
+-- CREATE EXTERNAL TABLE SALES --
+---------------------------------
 CREATE EXTERNAL TABLE gold.sales_performance_by_month
 WITH
 (
