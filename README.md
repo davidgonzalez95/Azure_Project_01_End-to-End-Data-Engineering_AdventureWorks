@@ -5,17 +5,17 @@
 [Project Description](#project-description)  
 [Technical Components](#technical-components)  
 [Data Architecture](#data-architecture)  
- - [1- Azure Data Factory (Ingestion and Orchestration)](#1-azure-data-factory-ingestion-and-orchestration)  
+[1- Azure Data Factory (Ingestion and Orchestration)](#1-azure-data-factory-ingestion-and-orchestration)  
    - [Objective](#objective-adf)  
    - [Pipeline Architecture](#pipeline-architecture)  
    - [PL_Extract_Raw_Data](#pl_extract_raw_data)  
    - [PL_Trans_Load](#pl_trans_load)  
- - [2- Azure Databricks (Transformation)](#2-azure-databricks-transformation)  
+[2- Azure Databricks (Transformation)](#2-azure-databricks-transformation)  
    - [Objective](#objective-databricks)  
    - [Considerations](#considerations)  
    - [Development Notebook](#development-notebook)  
    - [Production Notebook](#production-notebook)  
- - [3- Azure Synapse Analytics (Serving)](#3-azure-synapse-analytics-serving)  
+[3- Azure Synapse Analytics (Serving)](#3-azure-synapse-analytics-serving)  
    - [Objective](#objective-synapse)  
    - [Steps](#steps-synapse)  
      - [Creating Master Key and Schema](#creating-master-key-and-schema)  
@@ -23,8 +23,8 @@
      - [Setting Up External Data Sources](#setting-up-external-data-sources)  
      - [Creating External File Format for Parquet](#creating-external-file-format-for-parquet)  
      - [Creating External Tables](#creating-external-tables)  
-     - [Served Data Result (Gold Layer)](#served-data-result-gold-layer)  
- - [4- Data Reporting (Power BI)](#4-data-reporting-power-bi)  
+     - [Served Data Result (Gold Layer)](#served-data-result-gold-layer)
+ [4- Data Reporting (Power BI)](#4-data-reporting-power-bi)  
    - [Objective](#objective-power-bi)  
    - [Steps](#steps-power-bi)
 
@@ -254,11 +254,11 @@ External tables were created to allow Synapse to access Parquet files stored in 
 - Create External Table for Sales Data:
   [Azure Synapse External Tables](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Azure%20Synapse%20(External%20Tables).sql)
    
-7. **Result in Served data store (gold)**:
+7. **Result in Served data store (gold)**: [Final gold files](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/tree/main/Data/Results)
 
    ![image](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/KPIs%20(Gold%20Folder).png)
 
-## Power BI (Visualization)
+## 4- Power BI (Visualization)
 
 ### Objective:
 Visualize and report the processed data.
