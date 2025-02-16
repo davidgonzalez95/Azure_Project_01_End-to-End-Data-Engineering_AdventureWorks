@@ -46,7 +46,7 @@
 
    ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
 
-## 1-Azure Data Factory (Ingestion and Orchestration)<a name="azure-data-factory"></a>
+## 1-Azure Data Factory (Ingestion and Orchestration) <a name="azure-data-factory"></a>
 ### Objective <a name="objective-adf"></a>
 
 <p align="justify">The purpose of this section in the README is to explain the modular architecture of the pipelines implemented in Azure Data Factory, detailing their structure and functionality for data <b>ingestion</b>, <b>transformation</b>, and <b>orchestration</b>. The main goal is to highlight how the architecture is designed to be efficient, reusable, and scalable, facilitating maintenance and version control.</p>
@@ -133,12 +133,11 @@ The architecture is based on the following steps:
 
      <img src="https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Data%20Transformation%20(Silver%20folder).png" alt="image" width="400" height="auto">
 
-## 2- Azure Databricks (Transformation)<a name="azure-databricks"></a>
-
-### Objective:
+## 2- Azure Databricks (Transformation) <a name="azure-databricks"></a>
+### Objective: <a name="objective-databricks"></a>
 <p align="justify">The <b>purpose of the silver layer</b> in a data lake, using <b>Azure Databricks</b>, is to <b>provide cleaned, enriched, and transformed data</b> that is ready for further analytics and business intelligence processes. It acts as an intermediary between the raw ingested data (bronze layer) and the final, highly curated data (gold layer).</p> 
 
-### Considerations
+### Considerations <a name="considerations"></a>
 - **Pre-processed Data:**  
   <p align="justify">Since the data is sourced from Kaggle, it is already pre-processed and well-structured. Therefore, the typical data cleaning and enrichment processes, such as handling missing values, deduplication, and standardization, are not required in this case.</p>
 
@@ -149,7 +148,7 @@ The architecture is based on the following steps:
   <p align="justify">Despite the dataset’s small size, optimization techniques such as storing data in Parquet format and using Delta Lake for versioning and incremental updates are still applied to ensure scalability if data volume increases in the future.</p>
 
 
-### Development and Production Notebooks Overview:
+### Development and Production Notebooks Overview: <a name="development-and-production"></a>
 
 <p align="justify">To implement the transformation process effectively, two Databricks notebooks were created:</p>
 
@@ -157,7 +156,7 @@ The architecture is based on the following steps:
 
 - **Production Notebook:** Optimized for automated runs in the pipeline.
 
-### Development Notebook:
+### Development Notebook: <a name="development-notebook"></a>
 
 The development notebook consists of the following four parts:
 
@@ -184,7 +183,7 @@ The development notebook consists of the following four parts:
 You can view the notebook here:  
 [**Development Notebook**](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Dev%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
-### Production Notebook:
+### Production Notebook: <a name="production-notebook"></a>
 
 <p align="justify">Once the development notebook was verified and tested, a separate production notebook was created with modifications to ensure it is optimized for automated, scheduled runs. The production notebook focuses exclusively on the data extraction, loading, and transformation steps, ensuring efficient execution without additional overhead. It is fully integrated into the Azure Data Factory pipeline, providing a stable and consistent data processing workflow. The following adjustments were made:</p>
 
@@ -198,12 +197,11 @@ You can view the notebook here:
 [**Production Notebook**](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Prod%20-%20Databricks%20Transformations%20(Silver_layer).ipynb)
 
 
-## 3- Azure Synapse Analytics (Serving)
-
-### Objective:
+## 3- Azure Synapse Analytics (Serving) <a name="azure-synapse-analytics"></a>
+### Objective: <a name="objective-synapse"></a>
 After transforming the data in the **Silver layer**, the processed data is structured within **Azure Synapse** to provide optimized query performance and facilitate data access. This process involves creating **views** and **external tables** to integrate data from the Data Lake, providing an easy way to work with the data without needing to move it into the Synapse SQL pool.
 
-### **Steps:**
+### **Steps:** <a name="steps-synapse"></a>
 
 1. **Creating Master Key and Schema**
 - First, the **master key** for database encryption was created to ensure data security:
@@ -258,16 +256,15 @@ External tables were created to allow Synapse to access Parquet files stored in 
 
    ![image](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/KPIs%20(Gold%20Folder).png)
 
-## 4- Power BI (Visualization)
-
-### Objective:
+## 4- Power BI (Visualization) <a name="power-bi"></a>
+### Objective: <a name="objective-powerbi"></a>
 Visualize and report the processed data.
 
-### Steps:
+### Steps: <a name="steps-powerbi"></a>
 1. Use Microsoft Power BI to retrieve data directly from the gold folder by using Data lake connection, ensuring that the data is automatically refreshed through the cloud pipeline.
 2. Build an interactive dashboard showcasing sales data and insights.
 
-### Visualizations: [Dashboard](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Dashboard_PowerBI.pbix)
+### Visualizations: <a name="visualizations"></a> [Dashboard](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Dashboard_PowerBI.pbix)
 
-![image](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/Dashboard_Power_BI_Product.png)
-![image](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/Dashboard_Power_BI_Countries.png)
+<img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/Dashboard_Power_BI_Product.png" alt="image" width="500" height="auto">
+<img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/Dashboard_Power_BI_Countries.png" alt="image" width="500" height="auto">
