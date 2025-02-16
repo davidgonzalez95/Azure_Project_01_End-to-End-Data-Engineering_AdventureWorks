@@ -267,15 +267,6 @@ Visualize and report the processed data.
 1. Use Microsoft Power BI to retrieve data directly from the gold folder by using Data lake connection, ensuring that the data is automatically refreshed through the cloud pipeline.
 2. Build an interactive dashboard showcasing sales data and insights.
 
-## Part 5: End-to-End Pipeline Testing (Azure Data Factory)
-
-### Objective:
-Automate and test the pipeline for continuous data integration.
-
-### Steps:
-1. Set up a Scheduled Trigger in Azure Data Factory, allowing the pipeline to run daily, automatically extracting, transforming, and loading new data.
-2. Test the trigger by running the pipeline and observing the before and after states of the data.
-
 ### Visualizations: [Dashboard](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Dashboard_PowerBI.pbix)
 
 ![image](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/Dashboard_Power_BI_Product.png)
