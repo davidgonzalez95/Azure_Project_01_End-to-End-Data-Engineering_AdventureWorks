@@ -252,7 +252,7 @@ To access data from the Data Lake and load it into the Synapse environment, exte
 6. **Creating External Tables**
 External tables were created to allow Synapse to access Parquet files stored in the Data Lake while enabling structured querying within Synapse.
 - Create External Table for Sales Data:
-  [Azure Synapse External Tables](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Codes/Azure%20Synapse%20(Views).sql)
+  [Azure Synapse External Tables](https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Codes/Azure%20Synapse%20(External%20Tables).sql)
    
 7. **Result in Served data store (gold)**:
 
