@@ -53,7 +53,7 @@
 
 The architecture is based on the following steps:
 
-<img src="" alt="image" width="500" height="auto">
+<img src="https://github.com/davidgonzalez95/Azure_Project_01_End-to-End-Data-Engineering_AdventureWorks/blob/main/Pictures/PL_Production.png" alt="image" width="500" height="auto">
 
 #### **1- PL_Extract_Raw_Data:** <a name="pl_extract_raw_data"></a>
 
