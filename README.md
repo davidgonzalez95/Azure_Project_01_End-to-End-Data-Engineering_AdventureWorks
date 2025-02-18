@@ -40,7 +40,7 @@
 
 ## Data Architecture <a name="data-architecture"></a>
 
-   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture.png)
+   ![image](https://github.com/davidgonzalez95/End-to-End-Data-Engineering-on-Azure-Project/blob/main/Pictures/Architecture_Project_01.png)
 
 ## Azure Data Factory (Ingestion and Orchestration) <a name="azure-data-factory"></a>
 ### Objective <a name="objective-adf"></a>
